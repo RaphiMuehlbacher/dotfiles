@@ -104,8 +104,6 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -141,7 +139,7 @@ shift
 case "$command" in
 cd)           fzf-tmux -p -h 50% -w 40% --preview 'eza --tree --color=always --icons=always {} | head -199' "$@" ;;
 export|unset) fzf-tmux -p -h 40% -w 40% --preview 'env | grep -w {}' ;;
-ssh)          fzf-tux -p -h 50% -w 40% --preview 'dig +short {}; ping -c 1 {}; ssh-keyscan -t rsa,ecdsa,ed25519 {} 2>/dev/null | sort' "$@" ;;
+ssh)          fzf-tmux -p -h 50% -w 40% --preview 'dig +short {}; ping -c 1 {}; ssh-keyscan -t rsa,ecdsa,ed25519 {} 2>/dev/null | sort' "$@" ;;
 *)            fzf-tmux -p -h 50% -w 40% --preview "$show_file_or_dir_preview" "$@" ;;
 esac
 }
