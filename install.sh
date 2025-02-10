@@ -22,11 +22,11 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 # zsh
 echo "installing zsh"
 sudo apt install -y zsh
-chsh -s $(which zsh)
+sudo chsh -s $(which zsh) $USER
 
 # oh-my-zsh
 echo "installing oh-my-zsh"
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+RUNZSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # zsh-autosuggestions
 echo "installing zsh-autosuggestions"
