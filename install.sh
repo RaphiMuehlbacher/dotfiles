@@ -15,17 +15,18 @@ echo "installing curl"
 sudo apt install -y curl
 
 # brew
+sudo chown -R $(whoami) /home/linuxbrew/.linuxbrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # zsh
 echo "installing zsh"
 sudo apt install -y zsh
-chsh -s $(which zsh)
+sudo chsh -s $(which zsh) $USER
 
 # oh-my-zsh
 echo "installing oh-my-zsh"
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+RUNZSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # zsh-autosuggestions
 echo "installing zsh-autosuggestions"
