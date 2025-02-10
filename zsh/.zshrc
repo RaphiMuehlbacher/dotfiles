@@ -159,3 +159,4 @@ eval "$(zoxide init --cmd cd zsh)"
 
 # ----- Starship -----
 eval "$(starship init zsh)"
+

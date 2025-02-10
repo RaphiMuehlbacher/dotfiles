@@ -5,11 +5,10 @@ sudo apt update -y
 
 echo "Installing essential tools..."
 sudo apt install -y build-essential
+
 # git
 echo "installing git"
 sudo apt install -y git
-git config --global user.name="Raphael Muehlbacher"
-git config --global user.email="raphi.muehlbacher@gmail.com"
 
 # curl
 echo "installing curl"
@@ -46,6 +45,8 @@ sudo apt install -y fzf
 # tmux
 echo "installing tmux"
 sudo apt install -y tmux
+git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
+git clone -b v2.1.2 https://github.com/catppuccin/tmux.git ~/.config/tmux/plugins/catppuccin/tmux
 
 # fd
 echo "installing fd"
