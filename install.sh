@@ -27,7 +27,7 @@ sudo chsh -s $(which zsh) $USER
 
 # oh-my-zsh
 echo "installing oh-my-zsh"
-RUNZSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+RUNZSH=no sudo sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # zsh-autosuggestions
 echo "installing zsh-autosuggestions"
