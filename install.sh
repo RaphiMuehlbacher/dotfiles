@@ -20,7 +20,7 @@ echo "installing zsh"
 sudo apt install -y zsh
 sudo chsh -s $(which zsh) $USER
 rm ~/.zshrc
-stow ~/.config/zsh
+stow ~/.dotfiles/zsh
 
 # oh-my-zsh
 echo "installing oh-my-zsh"
