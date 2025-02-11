@@ -9,20 +9,18 @@ sudo apt install -y build-essential
 # git
 echo "installing git"
 sudo apt install -y git
+stow ~/dotfiles/git
 
 # curl
 echo "installing curl"
 sudo apt install -y curl
 
-# brew
-# sudo chown -R $(whoami) /home/linuxbrew/.linuxbrew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
 # zsh
 echo "installing zsh"
 sudo apt install -y zsh
 sudo chsh -s $(which zsh) $USER
+rm ~/.zshrc
+stow ~/.config/zsh
 
 # oh-my-zsh
 echo "installing oh-my-zsh"
@@ -38,6 +36,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 
 echo "installing starship"
 curl -sS https://starship.rs/install.sh | sh
+stow ~/dotfiles/starship
 
 # fzf
 echo "installing fzf"
@@ -48,6 +47,11 @@ echo "installing tmux"
 sudo apt install -y tmux
 git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
 git clone -b v2.1.2 https://github.com/catppuccin/tmux.git ~/.config/tmux/plugins/catppuccin/tmux
+stow ~/dotfiles/tmux
+
+# brew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # fd
 echo "installing fd"
@@ -64,8 +68,10 @@ curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh 
 # bat
 echo "installing bat"
 brew install bat
+stow ~/dotfiles/bat
 
 # lazyvim
 echo "installing lazyvim"
 git clone https://github.com/LazyVim/starter ~/.config/nvim
-rm -rf ~/.config/nvim/.git
+rm -rf ~/.config/nvim
+stow ~/dotfiles/nvim
