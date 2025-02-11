@@ -1,4 +1,5 @@
 #!/bin/bash
+export ZSH=$HOME/.oh-my-zsh
 
 echo "Updating package list"
 sudo apt update -y
