@@ -21,7 +21,6 @@ echo "installing zsh"
 sudo apt install -y zsh
 sudo chsh -s $(which zsh) $USER
 rm ~/.zshrc
-mkdir -p ~/.config
 cd ~/dotfiles && stow zsh && cd -
 
 # oh-my-zsh
@@ -72,7 +71,6 @@ curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh 
 echo "installing bat"
 brew install bat
 cd ~/dotfiles && stow bat && cd -
-
 
 # lazyvim
 echo "installing lazyvim"
