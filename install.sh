@@ -9,7 +9,7 @@ sudo apt install -y build-essential
 # git
 echo "installing git"
 sudo apt install -y git
-stow ~/dotfiles/git
+cd ~/dotfiles && stow git && cd -
 
 # curl
 echo "installing curl"
@@ -20,7 +20,8 @@ echo "installing zsh"
 sudo apt install -y zsh
 sudo chsh -s $(which zsh) $USER
 rm ~/.zshrc
-stow ~/.dotfiles/zsh
+mkdir -p ~/.config
+cd ~/dotfiles && stow zsh && cd -
 
 # oh-my-zsh
 echo "installing oh-my-zsh"
@@ -34,9 +35,10 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 echo "installing zsh-syntax-highlighting"
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
+# starship
 echo "installing starship"
 curl -sS https://starship.rs/install.sh | sh
-stow ~/dotfiles/starship
+cd ~/dotfiles && stow starship && cd -
 
 # fzf
 echo "installing fzf"
@@ -47,7 +49,7 @@ echo "installing tmux"
 sudo apt install -y tmux
 git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
 git clone -b v2.1.2 https://github.com/catppuccin/tmux.git ~/.config/tmux/plugins/catppuccin/tmux
-stow ~/dotfiles/tmux
+cd ~/dotfiles && stow tmux && cd -
 
 # brew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -68,10 +70,11 @@ curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh 
 # bat
 echo "installing bat"
 brew install bat
-stow ~/dotfiles/bat
+cd ~/dotfiles && stow bat && cd -
+
 
 # lazyvim
 echo "installing lazyvim"
 git clone https://github.com/LazyVim/starter ~/.config/nvim
 rm -rf ~/.config/nvim
-stow ~/dotfiles/nvim
+cd ~/dotfiles && stow nvim && cd -
