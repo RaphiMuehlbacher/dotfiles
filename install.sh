@@ -20,12 +20,12 @@ sudo apt install -y curl
 echo "installing zsh"
 sudo apt install -y zsh
 sudo chsh -s $(which zsh) $USER
-rm ~/.zshrc
-cd ~/dotfiles && stow zsh && cd -
 
 # oh-my-zsh
 echo "installing oh-my-zsh"
 RUNZSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+rm ~/.zshrc
+cd ~/dotfiles && stow zsh && cd -
 
 # zsh-autosuggestions
 echo "installing zsh-autosuggestions"
