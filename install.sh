@@ -71,6 +71,7 @@ curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh 
 echo "installing bat"
 brew install bat
 cd ~/dotfiles && stow bat && cd -
+bat cache --build
 
 # lazyvim
 echo "installing lazyvim"
