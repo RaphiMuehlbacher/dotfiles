@@ -107,12 +107,11 @@ source $ZSH/oh-my-zsh.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # ----- NVIM -----
 export PATH="$PATH:/opt/nvim-linux64/bin"
 
-alias v='file=$(fd --type f --hidden --exclude .git | fzf-tmux -p -h 65% -w 70% --reverse --preview "batcat --color=always --style=numbers {}") && [ -n "$file" ] && nvim "$file"'
+alias v='file=$(fd --type f --hidden --exclude .git | fzf-tmux -p -h 65% -w 70% --reverse --preview "bat --color=always --style=numbers {}") && [ -n "$file" ] && nvim "$file"'
 # alias v='fd --type f --hidden --exclude .git | fzf-tmux -p -h 70% -w 60% --reverse --preview "batcat --color=always --style=numbers --line-range=:200 {}" | xargs nvim'
 # "fd --type f --hidden --exclude .git | fzf-tmux -p -h 70% -w 60% --color=bg+:#1376F9,gutter:-1 --preview 'batcat --theme=tokyonight_night --color=always --style=full --line-range=:200 {1}' | xargs nvim"
 
@@ -130,7 +129,7 @@ _fzf_compgen_dir(){
 fd --type=d --hidden --exclude .git . "$1"
 }
 
-show_file_or_dir_preview="if [ -d {} ]; then eza --tree --color=always {} | head -200; else batcat -n --color=always --line-range :500 {}; fi"
+show_file_or_dir_preview="if [ -d {} ]; then eza --tree --color=always {} | head -200; else bat -n --color=always --line-range :500 {}; fi"
 
 _fzf_comprun() {
 local command=$1
@@ -149,6 +148,7 @@ esac
 # ----- BATCAT -----
 export BAT_THEME=tokyonight_night
 
+# ----- NVIM -----
 
 # ----- EZA -----
 alias ls="eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions -a"
@@ -160,3 +160,8 @@ eval "$(zoxide init --cmd cd zsh)"
 # ----- Starship -----
 eval "$(starship init zsh)"
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
+
+# ----- GO ------
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+
